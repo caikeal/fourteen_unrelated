@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Libraries\Utils\Math;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Order extends Model
 {
@@ -80,4 +82,32 @@ class Order extends Model
         'cancelled_at',
         'refund_status',
     ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'order_no', 'order_no');
+    }
+
+    /**
+     * 生成订单号.
+     *
+     * @return string
+     *
+     * @author Caikeal <caikeal@qq.com>
+     */
+    public static function generateOrderNo()
+    {
+        $sn = Math::generateSn('10');
+
+        /* 到数据库里查找是否已存在 */
+        try {
+            self::findOrFail($sn);
+        } catch (ModelNotFoundException $e) {
+            return $sn;
+        }
+
+        /* 如果有重复的，则重新生成 */
+
+        return self::generateOrderNo();
+    }
 }
