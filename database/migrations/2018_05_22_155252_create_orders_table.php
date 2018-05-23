@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_no')->comment('订单号')->primary();
             $table->unsignedInteger('store_id')->comment('门店 ID')->index();
             $table->unsignedInteger('user_id')->comment('用户 ID')->index();
+            $table->unsignedInteger('staff_id')->default(0)->comment('服务员 ID');
             $table->string('title')->comment('订单标题');
             $table->string('status')->default('WAIT_PAY')->comment('订单状态：WAIT_PAY 待付款，COMPLETED 已完成，CANCELLED 已取消')->index();
             $table->string('payment_channel')->nullable()->comment('支付渠道');
