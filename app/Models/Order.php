@@ -89,6 +89,26 @@ class Order extends Model
         return $this->hasMany(OrderItem::class, 'order_no', 'order_no');
     }
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'order_no', 'order_no');
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo(Staff::class, 'staff_id', 'id');
+    }
+
     /**
      * 生成订单号.
      *

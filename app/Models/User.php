@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Libraries\Utils\Math;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -34,4 +36,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    /**
+     * 生成会员.
+     *
+     * @return string
+     *
+     * @author Caikeal <caikeal@qq.com>
+     */
+    public static function generateUserNo()
+    {
+        $sn = Math::generateSn('14');
+
+        /* 到数据库里查找是否已存在 */
+        try {
+            self::findOrFail($sn);
+        } catch (ModelNotFoundException $e) {
+            return $sn;
+        }
+
+        /* 如果有重复的，则重新生成 */
+
+        return self::generateUserNo();
+    }
 }
