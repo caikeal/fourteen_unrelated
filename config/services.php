@@ -1,7 +1,15 @@
 <?php
 
-return [
+/*
+ * This file is part of the caikeal/fourteen_unrelated .
+ *
+ * (c) caikeal <caiyuezhang@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+return [
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
@@ -20,7 +28,7 @@ return [
     ],
 
     'ses' => [
-        'key' => env('SES_KEY'),
+        'key'    => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
@@ -30,9 +38,8 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\Models\User::class,
-        'key' => env('STRIPE_KEY'),
+        'model'  => App\Models\User::class,
+        'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-
 ];

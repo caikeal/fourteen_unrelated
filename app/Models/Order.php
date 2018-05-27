@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the caikeal/fourteen_unrelated .
+ *
+ * (c) caikeal <caiyuezhang@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace App\Models;
 
 use App\Libraries\Utils\Math;
@@ -13,7 +22,7 @@ class Order extends Model
     const STATUS_CANCELLED = 'CANCELLED';               // 已取消
 
     const CANCELLED_BY_NOT_PAID = 'NOT_PAID';           // 超时未支付关闭
-    const CANCELLED_BY_MEMBER = 'MEMBER';             // 会员手动关闭
+    const CANCELLED_BY_MEMBER   = 'MEMBER';             // 会员手动关闭
     const CANCELLED_BY_MERCHANT = 'MERCHANT';           // 商家手动关闭
 
     const ORDER_TYPE_OFFLINE_SCAN = 'OFFLINE_SCAN';    // 线下扫码枪
@@ -60,7 +69,7 @@ class Order extends Model
     ];
 
     protected $casts = [
-        'user_id' => 'integer',
+        'user_id'  => 'integer',
         'store_id' => 'integer',
     ];
 

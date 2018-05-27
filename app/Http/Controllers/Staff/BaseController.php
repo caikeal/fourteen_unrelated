@@ -9,15 +9,8 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Models;
+namespace App\Http\Controllers\Staff;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Store extends Model
+class BaseController
 {
-    protected $fillable = [
-        'name',
-        'head_image',
-        'status',
-    ];
 }

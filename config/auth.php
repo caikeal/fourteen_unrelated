@@ -1,7 +1,15 @@
 <?php
 
-return [
+/*
+ * This file is part of the caikeal/fourteen_unrelated .
+ *
+ * (c) caikeal <caiyuezhang@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+return [
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -14,7 +22,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -37,13 +45,23 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver'   => 'session',
+            'provider' => 'staffs',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver'   => 'token',
             'provider' => 'users',
+        ],
+
+        'user' => [
+            'driver'   => 'jwt',
+            'provider' => 'users',
+        ],
+
+        'staff.php' => [
+            'driver'   => 'jwt',
+            'provider' => 'staffs',
         ],
     ],
 
@@ -67,7 +85,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model'  => App\Models\User::class,
+        ],
+
+        'staffs' => [
+            'driver' => 'eloquent',
+            'model'  => App\Models\Staff::class,
         ],
 
         // 'users' => [
@@ -94,9 +117,8 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'table'    => 'password_resets',
+            'expire'   => 60,
         ],
     ],
-
 ];

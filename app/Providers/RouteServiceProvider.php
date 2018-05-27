@@ -1,9 +1,18 @@
 <?php
 
+/*
+ * This file is part of the caikeal/fourteen_unrelated .
+ *
+ * (c) caikeal <caiyuezhang@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -18,36 +27,28 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
     /**
      * Define the routes for the application.
-     *
-     * @return void
      */
     public function map()
     {
-        $this->mapApiRoutes();
-
         $this->mapWebRoutes();
 
-        //
+        $this->mapStaffRoutes();
+
+        $this->mapUserRoutes();
     }
 
     /**
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
      */
     protected function mapWebRoutes()
     {
@@ -57,17 +58,23 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the "api" routes for the application.
+     * 员工端.
      *
-     * These routes are typically stateless.
-     *
-     * @return void
+     * @author Caikeal <caikeal@qq.com>
      */
-    protected function mapApiRoutes()
+    protected function mapStaffRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+        Route::prefix('staff.php')
+            ->middleware('api')
+            ->namespace('App\Http\Controllers\Staff')
+            ->group(base_path('routes/staff.php'));
+    }
+
+    protected function mapUserRoutes()
+    {
+        Route::prefix('user')
+            ->middleware('api')
+            ->namespace('App\Http\Controllers\User')
+            ->group(base_path('routes/user.php'));
     }
 }
