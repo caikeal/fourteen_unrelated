@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: caikeal
- * Date: 2018/5/26
- * Time: 下午3:53
+/*
+ * This file is part of the caikeal/fourteen_unrelated .
+ *
+ * (c) caikeal <caiyuezhang@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */

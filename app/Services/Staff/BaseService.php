@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the caikeal/fourteen_unrelated .
  *
@@ -7,11 +8,9 @@
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
-Route::group(['prefix' => 'v1'], function () {
 
-    // 扫码
-    Route::group(['prefix' => 'scan', 'as' => 'scan.'], function () {
-        Route::post('user', 'UserController@scan')->name('user.code');
-    });
-    
-});
+namespace App\Services\Staff;
+
+class BaseService
+{
+}
