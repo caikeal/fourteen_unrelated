@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace App\Http\Controllers\Staff;
+namespace App\Http\Controllers\User\Api;
 
 class BaseController
 {
