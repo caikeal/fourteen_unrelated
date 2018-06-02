@@ -22,6 +22,9 @@ class Payment extends Model
     const STATUS_FAILED     = 'FAILED';      // 支付失败
     const STATUS_CLOSED     = 'CLOSED';      // 已关闭
 
+    const WECHAT_SCAN_PAYMENAT_CHANNEL = 'WECHAT_SCAN_PAY'; // 微信扫码
+    const ALI_SCAN_PAYMENAT_CHANNEL    = 'ALI_SCAN_PAY'; // 支付宝扫码
+
     /**
      * The primary key for the model.
      *

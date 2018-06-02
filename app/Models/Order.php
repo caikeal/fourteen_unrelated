@@ -100,7 +100,8 @@ class Order extends Model
 
     public function payments()
     {
-        return $this->hasMany(Payment::class, 'order_no', 'order_no');
+        return $this->hasMany(Payment::class, 'order_no', 'order_no')
+            ->orderByDesc('created_at');
     }
 
     public function store()

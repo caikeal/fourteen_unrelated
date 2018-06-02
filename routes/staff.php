@@ -11,7 +11,11 @@ Route::group(['prefix' => 'v1'], function () {
 
     // 扫码
     Route::group(['prefix' => 'scan', 'as' => 'scan.'], function () {
+        // 用户码
         Route::post('user', 'UserController@scan')->name('user.code');
+
+        // 订单码
+        Route::post('order', 'OrderController@scan')->name('order.code');
     });
-    
+
 });
